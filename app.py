@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 st.set_page_config(page_title="Subscription Analyzer", layout="centered")
 
-st.title("📊 Student Subscription Analyzer")
+st.title("📊 SubTracker")
 
 
 # Read the uploaded Excel file
