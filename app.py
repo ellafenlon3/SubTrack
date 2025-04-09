@@ -68,3 +68,70 @@ data = {
     "Status": ["Active", "Forgotten", "Active", "Active", "Forgotten", "Active"],
     "Next Billing": ["Apr 15, 2025", "Apr 22, 2025", "Apr 18, 2025", "Apr 30, 2025", "Apr 27, 2025", "Apr 12, 2025"]
 }
+st.markdown("""
+    <style>
+    .top-banner {
+        background-color: #82cbb2;
+        padding: 1.2rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+        font-family: 'Segoe UI', sans-serif;
+        border-bottom: 2px solid #66b3a6;
+        border-radius: 0 0 12px 12px;
+    }
+    .top-left {
+        display: flex;
+        align-items: center;
+    }
+    .top-left img {
+        height: 28px;
+        margin-right: 12px;
+    }
+    .top-center a {
+        margin: 0 20px;
+        text-decoration: none;
+        color: white;
+        font-weight: 500;
+        font-size: 16px;
+    }
+    .top-center a:hover {
+        text-decoration: underline;
+    }
+    .top-right {
+        display: flex;
+        align-items: center;
+    }
+    .user-circle {
+        background-color: white;
+        color: #82cbb2;
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 14px;
+        margin-right: 10px;
+    }
+    </style>
+
+    <div class="top-banner">
+        <div class="top-left">
+            <img src="https://img.icons8.com/fluency/48/calendar.png"/>
+            <h3 style="margin: 0;">SubTrack</h3>
+        </div>
+        <div class="top-center">
+            <a href="#">Dashboard</a>
+            <a href="#">My Subscriptions</a>
+            <a href="#">Analytics</a>
+            <a href="#">Settings</a>
+        </div>
+        <div class="top-right">
+            <div class="user-circle">GR</div>
+            <span style="font-size: 15px;">Gerard Ryan</span>
+        </div>
+    </div>
+""", unsafe_allow_html=True)
