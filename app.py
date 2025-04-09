@@ -12,88 +12,70 @@ DATA_FILE = "Mock_Student_Subscription_Data Econometrics.xlsx"
 import streamlit as st
 import pandas as pd
 
-st.markdown("""
-<div style='
-    background-color: #7EC6AD;
-    padding: 10px 0;
-    text-align: center;
-    color: white;
-    font-weight: bold;
-    font-family: "Segoe UI", sans-serif;
-    font-size: 15px;
-'>
-</div>
-""", unsafe_allow_html=True)
-import streamlit as st
 import streamlit as st
 
-# Initialize session state
+# --- Session state setup ---
 if "upgrade_mode" not in st.session_state:
     st.session_state.upgrade_mode = False
 
-# Handle "Go Back"
-if st.button("⬅ Go Back to Home", key="go_back_button") and st.session_state.upgrade_mode:
-    st.session_state.upgrade_mode = False
-
-# Display main banner
+# --- UI: Main banner ---
 st.markdown("""
 <div style="background-color: #7DD6B6; padding: 10px; text-align: center;">
     <strong style="color: white;">Save up to 25% on your monthly subscriptions with SubTrack Premium – 
-    <a href="#" onclick="window.location.reload();" style="color: white; text-decoration: underline;" id="upgrade-link">Upgrade now</a></strong>
+    <a href="#" onclick="window.location.href='/?upgrade=1'" style="color: white; text-decoration: underline;">Upgrade now</a></strong>
 </div>
 """, unsafe_allow_html=True)
 
-# Trigger upgrade modal if clicked
-upgrade_clicked = st.session_state.upgrade_mode or st.query_params().get("upgrade") == ["1"]
+# --- Fix the error here ---
+query_params = st.query_params  # ✅ This is the correct usage — not st.query_params()
+upgrade_clicked = st.session_state.upgrade_mode or query_params.get("upgrade") == "1"
 
-# Set upgrade mode on manual trigger
-if "upgrade" in st.query_params():
+# --- If upgrade param is in URL, turn modal on ---
+if query_params.get("upgrade") == "1":
     st.session_state.upgrade_mode = True
 
+# --- UPGRADE MODAL ---
 if upgrade_clicked:
-    st.markdown(
-        """
+    st.markdown("""
         <style>
-        .overlay {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100vw; height: 100vh;
-            background: rgba(0,0,0,0.4);
-            z-index: 999;
-        }
-        .modal {
-            background-color: #7DD6B6;
-            padding: 40px;
-            border-radius: 12px;
-            text-align: center;
-            width: 350px;
-            margin: 100px auto;
-        }
-        input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            border: none;
-        }
+            .overlay {
+                position: fixed;
+                top: 0; left: 0;
+                width: 100vw; height: 100vh;
+                background: rgba(0, 0, 0, 0.4);
+                z-index: 999;
+            }
+            .modal {
+                background-color: #7DD6B6;
+                padding: 40px;
+                border-radius: 12px;
+                text-align: center;
+                width: 350px;
+                margin: 100px auto;
+            }
+            input {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 10px;
+                border-radius: 5px;
+                border: none;
+            }
         </style>
         <div class='overlay'>
             <div class='modal'>
-                <div style="text-align: left;">
-                    <form method="dialog">
-                        <button type="submit" style="background:none;border:none;color:white;cursor:pointer;" formnovalidate>
-                            ⬅ Go Back
-                        </button>
-                    </form>
-                </div>
+                <form method='get'>
+                    <button type='submit' style='background:none; border:none; color:white; cursor:pointer; text-align:left;'>
+                        ⬅ Go Back to Home
+                    </button>
+                </form>
                 <h2 style="color: white;">Upgrade Now</h2>
                 <p style="color: white;">One-time payment of €10.99</p>
-                <form action="" method="POST">
-                    <input type="text" name="name" placeholder="Name on Card" />
-                    <input type="text" name="card" placeholder="Card Number" />
+                <form>
+                    <input type="text" name="name" placeholder="Name on Card">
+                    <input type="text" name="card" placeholder="Card Number">
                     <div style="display: flex; gap: 10px;">
-                        <input type="text" name="exp" placeholder="MM/YY" />
-                        <input type="text" name="cvc" placeholder="CVC" />
+                        <input type="text" name="exp" placeholder="MM/YY">
+                        <input type="text" name="cvc" placeholder="CVC">
                     </div>
                     <button type="submit" style="margin-top: 10px; background-color: white; color: #00A9B4; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer;">
                         💳 Pay Now
@@ -101,16 +83,17 @@ if upgrade_clicked:
                 </form>
             </div>
         </div>
-        """,
-        unsafe_allow_html=True
-    )
+    """, unsafe_allow_html=True)
 else:
-    st.title("Subscription Tracker & Cancellation App")
-    st.markdown("Welcome to SubTrack!")
-    if st.button("Upgrade now", key="upgrade_button"):
-        st.session_state.upgrade_mode = True
-        st.experimental_set_query_params(upgrade="1")
+    # --- Normal home content ---
+    st.title("🎓 SubTrack")
+    st.subheader("Subscription Tracker & Cancellation App")
 
+    st.write("💡 Meet SubTrack – your ultimate student sidekick!")
+    st.write("From Netflix to gym memberships, manage all your subs in one place.")
+    if st.button("Upgrade now"):
+        st.session_state.upgrade_mode = True
+        
 # --- 4. Normal Content (if modal not active) ---
 if not st.session_state.show_upgrade:
     st.title("🎓 SubTrack – Smart Subscriptions for Students")
