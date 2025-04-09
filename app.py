@@ -12,6 +12,11 @@ DATA_FILE = "Mock_Student_Subscription_Data Econometrics.xlsx"
 import streamlit as st
 import pandas as pd
 
+# Initialize session state variable
+if "show_upgrade" not in st.session_state:
+    st.session_state.show_upgrade = False
+
+
 import streamlit as st
 
 # --- Session state setup ---
@@ -93,7 +98,7 @@ else:
     st.write("From Netflix to gym memberships, manage all your subs in one place.")
     if st.button("Upgrade now"):
         st.session_state.upgrade_mode = True
-        
+
 # --- 4. Normal Content (if modal not active) ---
 if not st.session_state.show_upgrade:
     st.title("🎓 SubTrack – Smart Subscriptions for Students")
