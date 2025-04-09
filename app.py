@@ -7,12 +7,6 @@ st.set_page_config(page_title="Subscription Analyzer", layout="centered")
 
 st.title("SubTracker")
 
-import streamlit as st
-
-# Display the logo
-st.image("image.png", width=150)  # You can adjust the width if needed
-
-
 # Read the uploaded Excel file
 DATA_FILE = "Mock_Student_Subscription_Data Econometrics.xlsx"
 import streamlit as st
