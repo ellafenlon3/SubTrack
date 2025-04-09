@@ -14,9 +14,6 @@ try:
 
     st.success("Data loaded successfully!")
 
-    st.subheader("🔍 Data Preview")
-    st.write(df.head())
-
     # Average monthly subscription cost
     if 'total_monthly_subscription_cost' in df.columns:
         avg_cost = df['total_monthly_subscription_cost'].mean()
