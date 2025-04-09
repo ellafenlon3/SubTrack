@@ -100,6 +100,7 @@ st.markdown("""
     </p>
 </div>
 """, unsafe_allow_html=True)
+import streamlit as st
 
 # --- 1. Setup session state ---
 if "confirm_cancel" not in st.session_state:
@@ -135,8 +136,8 @@ if st.session_state.confirm_cancel:
 
 
 # --- 3. Normal page content (when not confirming) ---
-
-
+else:
+    st.write("🧾 Here’s your subscription overview!")
 
     # Cancel button to trigger confirmation
     if st.button("Cancel Subscription"):
