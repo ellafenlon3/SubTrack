@@ -29,65 +29,94 @@ st.markdown("""
 
 import streamlit as st
 
-# --- Setup session state for upgrade flow ---
-if "upgrade" not in st.session_state:
-    st.session_state.upgrade = False
+# --- 1. Setup upgrade modal state ---
+if "show_upgrade" not in st.session_state:
+    st.session_state.show_upgrade = False
 
-if st.session_state.upgrade:
-    # Render a faded overlay background via CSS
-    st.markdown("""
-        <style>
-            .overlay {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 0.5);
-                z-index: 1000;
-            }
-        </style>
-        <div class="overlay"></div>
-    """, unsafe_allow_html=True)
+# --- 2. Banner with clickable upgrade ---
+st.markdown("""
+<div style='background-color:#7EC6AD; padding:10px; text-align:center; border-radius:4px;'>
+    <span style='color:white; font-weight:bold;'>
+        Save up to 25% on your monthly subscriptions with SubTrack Premium – 
+        <a href='#' onclick="window.location.reload();" style='color:white; text-decoration:underline;'>Upgrade now</a>
+    </span>
+</div>
+""", unsafe_allow_html=True)
 
-    # Render the turquoise price box in the center of the screen
+if st.button("🚀 Click Here to Upgrade (Dev Trigger)"):
+    st.session_state.show_upgrade = True
+
+# --- 3. Upgrade Modal UI ---
+if st.session_state.show_upgrade:
     st.markdown("""
-        <div style="
+    <style>
+        .overlay {
             position: fixed;
-            top: 50%;
-            left: 50%;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            background: rgba(0,0,0,0.6);
+            z-index: 999;
+        }
+        .modal {
+            position: fixed;
+            top: 50%; left: 50%;
             transform: translate(-50%, -50%);
             background-color: #7EC6AD;
-            padding: 40px;
-            border-radius: 12px;
             color: white;
+            padding: 30px;
+            border-radius: 12px;
+            width: 400px;
             text-align: center;
-            font-family: 'Segoe UI', sans-serif;
-            z-index: 1001;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        ">
-            <h2 style="margin: 0; font-size: 36px;">Upgrade Now</h2>
-            <p style="font-size: 24px; margin: 20px 0;">One-time payment of €10.99</p>
+            z-index: 1000;
+        }
+        .modal input {
+            width: 90%;
+            padding: 10px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 5px;
+        }
+        .modal-buttons {
+            margin-top: 15px;
+        }
+        .pay-btn {
+            background-color: white;
+            color: #333;
+            font-weight: bold;
+            padding: 10px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .back-btn {
+            position: absolute;
+            top: 12px;
+            left: 16px;
+            background: none;
+            border: none;
+            font-size: 16px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+
+    <div class='overlay'></div>
+    <div class='modal'>
+        <button class='back-btn' onclick="window.location.reload()">← Go Back</button>
+        <h2>Upgrade Now</h2>
+        <p>One-time payment of €10.99</p>
+        <input type='text' placeholder='Name on Card'>
+        <input type='text' placeholder='Card Number'>
+        <div style='display:flex; justify-content: space-between;'>
+            <input type='text' placeholder='MM/YY' style='width: 45%;'>
+            <input type='text' placeholder='CVC' style='width: 45%;'>
         </div>
+        <div class='modal-buttons'>
+            <button class='pay-btn'>💳 Pay Now</button>
+        </div>
+    </div>
     """, unsafe_allow_html=True)
 
-    # Render two buttons below the overlay price box
-    # Since the overlay uses fixed positioning, these buttons are rendered in the main Streamlit flow
-    col1, col2 = st.columns(2)
-    with col1:
-        if st.button("← Go Back", key="upgrade_go_back"):
-            st.session_state.upgrade = False
-    with col2:
-        if st.button("Pay Now", key="pay_now"):
-            st.info("Proceeding to payment details page...")
-
-else:
-    # Main app content
-    st.write("Welcome to the app!")
-    
-    # This button triggers the upgrade overlay
-    if st.button("Upgrade Now", key="upgrade_button"):
-        st.session_state.upgrade = True
 
 # ✅ Padding below banner so content isn't hidden
 st.markdown("""
