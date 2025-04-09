@@ -82,6 +82,9 @@ elif page == "Analytics":
 elif page == "Settings":
     st.header("⚙️ Settings")
     st.write("Update preferences or profile.")
+st.sidebar.title("📅 SubTrack")
+st.sidebar.markdown("### 👤 John Smith")
+st.sidebar.markdown("---")
 
 
 
