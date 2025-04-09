@@ -12,6 +12,14 @@ import pandas as pd
 import streamlit as st
 st.markdown("""
     <style>
+    .main {
+        padding-top: 100px !important;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+    <style>
     .block-container {
         padding-top: 0 !important;
     }
