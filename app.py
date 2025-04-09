@@ -164,6 +164,25 @@ data = {
 
 df = pd.DataFrame(data)
 
+
+# 📊 Dashboard title with icon
+st.markdown("""
+<div style='
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    font-family: "Segoe UI", sans-serif;
+'>
+    <img src="https://img.icons8.com/fluency/48/dashboard-layout.png" width="32"/>
+    Dashboard
+</div>
+""", unsafe_allow_html=True)
+
+
 # Show it on the dashboard
 st.subheader("📋 Your Subscriptions")
 st.dataframe(df, use_container_width=True)
@@ -183,23 +202,6 @@ try:
     }
 except Exception as e:
     st.error(f"Something went wrong: {e}")
-
-# 📊 Dashboard title with icon
-st.markdown("""
-<div style='
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 28px;
-    font-weight: bold;
-    margin-top: 40px;
-    margin-bottom: 15px;
-    font-family: "Segoe UI", sans-serif;
-'>
-    <img src="https://img.icons8.com/fluency/48/dashboard-layout.png" width="32"/>
-    Dashboard
-</div>
-""", unsafe_allow_html=True)
 
 
 # Sample subscription data
