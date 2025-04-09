@@ -11,70 +11,21 @@ DATA_FILE = "Mock_Student_Subscription_Data Econometrics.xlsx"
 import streamlit as st
 import pandas as pd
 
-# Banner
 st.markdown("""
-    <style>
-    .block-container { padding-top: 0 !important; }
-    .full-banner {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background-color: #82cbb2;
-        color: white;
-        padding: 1.2rem 2rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        z-index: 1000;
-        font-family: 'Segoe UI', sans-serif;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        border-bottom: 2px solid #66b3a6;
-    }
-    .top-left { display: flex; align-items: center; }
-    .top-left img { height: 28px; margin-right: 10px; }
-    .top-left h3 { margin: 0; font-size: 22px; font-weight: bold; }
-    .top-center a {
-        margin: 0 20px;
-        text-decoration: none;
-        color: white;
-        font-weight: 500;
-        font-size: 16px;
-    }
-    .top-center a:hover { text-decoration: underline; }
-    .top-right { display: flex; align-items: center; }
-    .user-circle {
-        background-color: white;
-        color: #82cbb2;
-        border-radius: 50%;
-        width: 35px;
-        height: 35px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        font-size: 14px;
-        margin-right: 10px;
-    }
-    </style>
-
-    <div class="full-banner">
-        <div class="top-left">
-            <img src="https://img.icons8.com/fluency/48/calendar.png"/>
-            <h3>SubTrack</h3>
-        </div>
-        <div class="top-center">
-            <a href="#">Dashboard</a>
-            <a href="#">My Subscriptions</a>
-            <a href="#">Analytics</a>
-            <a href="#">Settings</a>
-        </div>
-        <div class="top-right">
-            <div class="user-circle">GR</div>
-            <span style="font-size: 15px;">Gerard Ryan</span>
-        </div>
-    </div>
+<div style='
+    background-color: #7EC6AD;
+    padding: 10px 0;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-family: "Segoe UI", sans-serif;
+    font-size: 15px;
+'>
+    Save up to 25% on your monthly subscriptions with SubTrack Premium –
+    <a href='#' style='color: white; text-decoration: underline;'>Upgrade now</a>
+</div>
 """, unsafe_allow_html=True)
+
 
 # ✅ Padding below banner so content isn't hidden
 st.markdown("""
