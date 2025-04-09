@@ -73,28 +73,52 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
+import streamlit as st
 
-st.markdown("""
-<div style='
-    background-color: #fdeaea;
-    border-left: 5px solid #f44336;
-    padding: 15px 20px;
-    border-radius: 8px;
-    margin: 30px auto 20px;
-    max-width: 900px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-'>
-    <div style='display: flex; align-items: center;'>
-        <span style='font-size: 22px; margin-right: 15px;'>⚠️</span>
-        <div>
-            <p style='margin: 0; font-weight: bold; font-size: 18px;'>Forgotten Subscription Detected!</p>
-            <p style='margin: 5px 0 10px; color: #444;'>You haven’t used your Spotify Premium subscription in 3 months but are still paying €9.99/month.</p>
-            <button style='background-color: #f44336; color: white; padding: 8px 14px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; margin-right: 10px;'>Cancel Subscription</button>
-            <button style='background-color: #f0f0f0; color: #333; padding: 8px 14px; border: none; border-radius: 5px; cursor: pointer;'>Remind Later</button>
+# --- SETUP STATE ---
+if "show_cancel_confirm" not in st.session_state:
+    st.session_state.show_cancel_confirm = False
+
+# --- CANCEL SCREEN ---
+if st.session_state.show_cancel_confirm:
+    st.markdown("""
+        <div style='
+            background-color: white;
+            padding: 60px 40px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin-top: 100px;
+        '>
+            <h1 style='font-size: 30px; color: #333;'>⚠️ Are you sure you want to cancel?</h1>
+            <br>
+            <button onclick="window.location.reload();" style='
+                background-color: #f0f0f0;
+                padding: 10px 20px;
+                border-radius: 8px;
+                font-size: 16px;
+                margin-right: 15px;
+                border: none;
+                cursor: pointer;
+            '>🔙 Go Back</button>
+
+            <button style='
+                background-color: #ff5c5c;
+                color: white;
+                padding: 10px 20px;
+                border-radius: 8px;
+                font-size: 16px;
+                border: none;
+                cursor: pointer;
+            '>✅ Yes, Cancel</button>
         </div>
-    </div>
-</div>
-""", unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
+
+# --- MAIN SCREEN (NORMAL UI) ---
+else:
+    if st.button("Cancel Subscription", key="cancel_btn", help="Click to cancel"):
+        st.session_state.show_cancel_confirm = True
+
 
 # In the Dashboard section (replace/add as needed)
 
