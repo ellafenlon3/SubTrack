@@ -22,20 +22,21 @@ st.markdown("""
         width: 100%;
         background-color: #82cbb2;
         color: white;
-        padding: 1rem 2rem;
+        padding: 1.2rem 2rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
         z-index: 1000;
         font-family: 'Segoe UI', sans-serif;
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        border-bottom: 2px solid #66b3a6;
     }
     .top-left {
         display: flex;
         align-items: center;
     }
     .top-left img {
-        height: 26px;
+        height: 28px;
         margin-right: 10px;
     }
     .top-left h3 {
@@ -44,7 +45,7 @@ st.markdown("""
         font-weight: bold;
     }
     .top-center a {
-        margin: 0 18px;
+        margin: 0 20px;
         text-decoration: none;
         color: white;
         font-weight: 500;
@@ -91,6 +92,7 @@ st.markdown("""
 
     <br><br><br><br>
 """, unsafe_allow_html=True)
+
 
 
 # Sample subscription data
