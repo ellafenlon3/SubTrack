@@ -151,33 +151,35 @@ with col2:
     # You can add cards, alerts, or metrics here
     pass
 
-
 st.markdown("""
-<div style='display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; font-family: "Segoe UI", sans-serif;'>
+<div style='
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    max-width: 100%;
+    font-family: "Segoe UI", sans-serif;
+'>
 
-  <!-- Box 1: Monthly Subscription Cost -->
-  <div style='background-color: #ffffff; border-radius: 12px; padding: 20px 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); width: 200px;'>
+  <div style='flex: 1; min-width: 220px; background-color: #ffffff; border-radius: 12px; padding: 20px 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);'>
     <p style='margin: 0; font-weight: 500; color: #444;'>Monthly Subscription Cost</p>
     <p style='margin: 10px 0 0; font-size: 24px; font-weight: bold;'>€48.99</p>
     <p style='margin: 5px 0 0; font-size: 13px; color: #e85d5d;'>+12% from last month</p>
   </div>
 
-  <!-- Box 2: Average Usage -->
-  <div style='background-color: #ffffff; border-radius: 12px; padding: 20px 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); width: 200px;'>
+  <div style='flex: 1; min-width: 220px; background-color: #ffffff; border-radius: 12px; padding: 20px 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);'>
     <p style='margin: 0; font-weight: 500; color: #444;'>Average Usage</p>
     <p style='margin: 10px 0 0; font-size: 24px; font-weight: bold;'>21.5 hrs</p>
     <p style='margin: 5px 0 0; font-size: 13px; color: #3cb371;'>+3.2 hrs from last month</p>
   </div>
 
-  <!-- Box 3: Active Subscriptions -->
-  <div style='background-color: #ffffff; border-radius: 12px; padding: 20px 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); width: 200px;'>
+  <div style='flex: 1; min-width: 220px; background-color: #ffffff; border-radius: 12px; padding: 20px 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);'>
     <p style='margin: 0; font-weight: 500; color: #444;'>Active Subscriptions</p>
     <p style='margin: 10px 0 0; font-size: 24px; font-weight: bold;'>6</p>
     <p style='margin: 5px 0 0; font-size: 13px; color: #e85d5d;'>+1 from last month</p>
   </div>
 
-  <!-- Box 4: Savings Opportunity -->
-  <div style='background-color: #ffffff; border-radius: 12px; padding: 20px 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); width: 200px;'>
+  <div style='flex: 1; min-width: 220px; background-color: #ffffff; border-radius: 12px; padding: 20px 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);'>
     <p style='margin: 0; font-weight: 500; color: #444;'>Savings Opportunity</p>
     <p style='margin: 10px 0 0; font-size: 24px; font-weight: bold;'>€17.99</p>
     <p style='margin: 5px 0 0; font-size: 13px; color: #444;'>From 2 unused services</p>
@@ -185,6 +187,7 @@ st.markdown("""
 
 </div>
 """, unsafe_allow_html=True)
+
 
 
 # Sample subscription data
