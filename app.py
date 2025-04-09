@@ -195,3 +195,79 @@ data = {
     "Next Billing": ["Apr 15, 2025", "Apr 22, 2025", "Apr 18, 2025", "Apr 30, 2025", "Apr 27, 2025", "Apr 12, 2025"]
 }
 
+# Spacer
+st.markdown("<br><br>", unsafe_allow_html=True)
+
+# 📅 Upcoming Renewals (Styled Calendar Block)
+st.markdown("""
+<div style='
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px 25px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    max-width: 1000px;
+    margin: auto;
+    font-family: "Segoe UI", sans-serif;
+'>
+    <h4 style='margin-bottom: 20px;'>Upcoming Renewals</h4>
+    <div style='display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; text-align: center; font-size: 14px; font-weight: 500;'>
+        <div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div><div>Sun</div>
+    </div>
+    <div style='display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; text-align: center; margin-top: 10px;'>
+        <div>7</div><div>8</div><div>9</div><div>10</div><div>11</div>
+        <div style='background-color: #e7f6f1; border-radius: 6px; padding: 6px 0; font-weight: bold;'>12<br>FitnessPal</div>
+        <div>13</div>
+
+        <div>14</div>
+        <div style='background-color: #e7f6f1; border-radius: 6px; padding: 6px 0; font-weight: bold;'>15<br>Netflix</div>
+        <div>16</div><div>17</div>
+        <div style='background-color: #e7f6f1; border-radius: 6px; padding: 6px 0; font-weight: bold;'>18<br>Disney+</div>
+        <div>19</div><div>20</div>
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
+# Spacer
+st.markdown("<br><br>", unsafe_allow_html=True)
+
+# 🧪 Free Trial Tracker
+st.markdown("""
+<div style='
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px 25px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    max-width: 1000px;
+    margin: auto;
+    font-family: "Segoe UI", sans-serif;
+'>
+    <h4 style='margin-bottom: 15px;'>Free Trial Tracker</h4>
+    <table style='width: 100%; border-collapse: collapse;'>
+        <thead>
+            <tr style='background-color: #f5f5f5; text-align: left;'>
+                <th style='padding: 10px;'>Service</th>
+                <th style='padding: 10px;'>Start Date</th>
+                <th style='padding: 10px;'>End Date</th>
+                <th style='padding: 10px;'>Days Left</th>
+                <th style='padding: 10px;'>Will Convert To</th>
+                <th style='padding: 10px;'>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style='border-top: 1px solid #eee;'>
+                <td style='padding: 10px;'>Audible Premium</td>
+                <td style='padding: 10px;'>Apr 1, 2025</td>
+                <td style='padding: 10px;'>Apr 30, 2025</td>
+                <td style='padding: 10px;'>22</td>
+                <td style='padding: 10px;'>€14.99/month</td>
+                <td style='padding: 10px;'>
+                    <button style='background-color: #c9f0e1; color: #176f54; border: none; padding: 5px 10px; border-radius: 6px; margin-right: 5px; cursor: pointer;'>Set Reminder</button>
+                    <button style='background-color: #f44336; color: white; border: none; padding: 5px 10px; border-radius: 6px; cursor: pointer;'>Cancel Now</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+""", unsafe_allow_html=True)
+
+
