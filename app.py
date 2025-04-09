@@ -30,6 +30,10 @@ st.markdown("""
     <a href="#" onclick="window.location.href='/?upgrade=1'" style="color: white; text-decoration: underline;">Upgrade now</a></strong>
 </div>
 """, unsafe_allow_html=True)
+# --- Red Upgrade Button ---
+if st.button("🔥 Upgrade Now", key="upgrade_now_btn"):
+    st.session_state.upgrade_mode = True
+
 
 # --- Fix the error here ---
 query_params = st.query_params  # ✅ This is the correct usage — not st.query_params()
