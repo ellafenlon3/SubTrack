@@ -83,6 +83,23 @@ import streamlit as st
 col1, col2 = st.columns([1, 3])
 
 import streamlit as st
+import streamlit as st
+
+# Warning Box
+st.markdown("""
+<div style='
+    background-color: #fdecea;
+    border-left: 5px solid #f44336;
+    padding: 16px;
+    border-radius: 8px;
+    margin-top: 20px;
+'>
+    <span style='font-size: 18px;'>⚠️ <strong>Forgotten Subscription Detected!</strong></span>
+    <p style='margin: 8px 0 0 28px; font-size: 15px;'>
+        You haven’t used your Spotify Premium subscription in 3 months but are still paying €9.99/month.
+    </p>
+</div>
+""", unsafe_allow_html=True)
 
 # --- 1. Setup session state ---
 if "confirm_cancel" not in st.session_state:
