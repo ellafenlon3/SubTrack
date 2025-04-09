@@ -198,7 +198,62 @@ data = {
 # Spacer
 st.markdown("<br><br>", unsafe_allow_html=True)
 
-
+# 🧪 Free Trial Tracker (Styled)
+st.markdown("""
+<div style='
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px 25px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    max-width: 1000px;
+    margin: 40px auto;
+    font-family: "Segoe UI", sans-serif;
+'>
+    <h4 style='margin-bottom: 15px;'>Free Trial Tracker</h4>
+    <table style='width: 100%; border-collapse: collapse; font-size: 15px;'>
+        <thead>
+            <tr style='background-color: #f5f6f8; text-align: left;'>
+                <th style='padding: 12px;'>Service</th>
+                <th style='padding: 12px;'>Start Date</th>
+                <th style='padding: 12px;'>End Date</th>
+                <th style='padding: 12px;'>Days Left</th>
+                <th style='padding: 12px;'>Will Convert To</th>
+                <th style='padding: 12px;'>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style='border-top: 1px solid #eee;'>
+                <td style='padding: 12px;'>Audible Premium</td>
+                <td style='padding: 12px;'>Apr 1, 2025</td>
+                <td style='padding: 12px;'>Apr 30, 2025</td>
+                <td style='padding: 12px;'>22</td>
+                <td style='padding: 12px;'>€14.99/month</td>
+                <td style='padding: 12px;'>
+                    <button style='
+                        background-color: #b6eadf;
+                        color: #1b7a63;
+                        font-weight: bold;
+                        border: none;
+                        padding: 6px 12px;
+                        border-radius: 6px;
+                        margin-right: 8px;
+                        cursor: pointer;
+                    '>Set Reminder</button>
+                    <button style='
+                        background-color: #f76c6c;
+                        color: white;
+                        font-weight: bold;
+                        border: none;
+                        padding: 6px 12px;
+                        border-radius: 6px;
+                        cursor: pointer;
+                    '>Cancel Now</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+""", unsafe_allow_html=True)
 
 
 
