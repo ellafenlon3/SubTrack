@@ -49,4 +49,4 @@ try:
 except Exception as e:
     st.error(f"⚠️ Error reading data: {e}")
 
-streamlit run app.py
+
