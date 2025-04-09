@@ -75,16 +75,16 @@ st.markdown("""
 
 import streamlit as st
 import streamlit as st
+import streamlit as st
 
-# --- 1. Session setup ---
+# --- 1. Setup session state ---
 if "confirm_cancel" not in st.session_state:
     st.session_state.confirm_cancel = False
-if "subscription_cancelled" not in st.session_state:
-    st.session_state.subscription_cancelled = False
 
 
-# --- 2. Confirmation Screen ---
+# --- 2. Confirm screen if cancel was clicked ---
 if st.session_state.confirm_cancel:
+    # Styled confirmation block
     st.markdown("""
         <div style='
             background-color: white;
@@ -98,59 +98,25 @@ if st.session_state.confirm_cancel:
         </div>
     """, unsafe_allow_html=True)
 
-    col1, col2 = st.columns(2)
+    # Two buttons
+    col1, col2 = st.columns([1, 1])
     with col1:
         if st.button("🔙 Go Back"):
-            st.session_state.confirm_cancel = False
+            st.session_state.confirm_cancel = False  # Return to main screen
 
     with col2:
         if st.button("✅ Yes, Cancel"):
-            st.session_state.subscription_cancelled = True
-            st.session_state.confirm_cancel = False
+            st.success("Subscription has been cancelled.")  # You can add logic here
+            st.session_state.confirm_cancel = False  # Return to main screen after confirmation
 
 
-# --- 3. Normal View with Warning Box ---
+# --- 3. Normal page content (when not confirming) ---
 else:
-    if st.session_state.subscription_cancelled:
-        st.success("✅ Your subscription has been cancelled.")
-    else:
-        # ⚠️ Red Warning Box
-        st.markdown("""
-            <div style='
-                background-color: #fdebec;
-                border-left: 5px solid #f25c5c;
-                padding: 20px;
-                border-radius: 8px;
-                margin-bottom: 20px;
-            '>
-                <h4 style='margin: 0;'>⚠️ Forgotten Subscription Detected!</h4>
-                <p>You haven’t used your <b>Spotify Premium</b> subscription in 3 months but are still paying <b>€9.99/month</b>.</p>
-                <div style='display: flex; gap: 10px; margin-top: 10px;'>
-                    <form action="" method="post">
-                        <button name="cancel" type="submit" style='
-                            background-color: #f25c5c;
-                            color: white;
-                            border: none;
-                            padding: 8px 16px;
-                            border-radius: 5px;
-                            cursor: pointer;
-                        '>Cancel Subscription</button>
-                        <button disabled style='
-                            background-color: #f3f3f3;
-                            color: #333;
-                            border: 1px solid #ccc;
-                            padding: 8px 16px;
-                            border-radius: 5px;
-                        '>Remind Later</button>
-                    </form>
-                </div>
-            </div>
-        """, unsafe_allow_html=True)
+    st.write("🧾 Here’s your subscription overview!")
 
-        # Detect cancellation (Streamlit button logic)
-        if "cancel" in st.session_state or st.form_submit_button("cancel"):
-            st.session_state.confirm_cancel = True
-
+    # Cancel button to trigger confirmation
+    if st.button("Cancel Subscription"):
+        st.session_state.confirm_cancel = True
 
     # Two buttons
     col1, col2 = st.columns([1, 1])
