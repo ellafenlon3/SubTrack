@@ -130,20 +130,6 @@ st.markdown("""
 try:
     df = pd.read_excel(DATA_FILE)
 
-    # Forecast chart (just an example for now)
-    st.subheader("📈 Forecasted Subscription Cost (Next 6 Months)")
-    base_cost = df['total_monthly_subscription_cost'].mean()
-    months = list(range(1, 7))
-    forecast_costs = [base_cost + i * 10 for i in months]
-
-    fig, ax = plt.subplots()
-    ax.plot(months, forecast_costs, marker='o')
-    ax.set_title("Estimated Monthly Costs")
-    ax.set_xlabel("Month")
-    ax.set_ylabel("Cost (€)")
-    ax.grid(True)
-    st.pyplot(fig)
-
 except Exception as e:
     st.error(f"⚠️ Error reading data: {e}")
 tab1 = st.tabs(["📊 Dashboard"])
