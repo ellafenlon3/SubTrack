@@ -10,30 +10,41 @@ st.title("📊 Student Subscription Analyzer")
 DATA_FILE = "Mock_Student_Subscription_Data Econometrics.xlsx"
 import pandas as pd
 import streamlit as st
-
 st.markdown("""
     <style>
-    .top-banner {
+    .block-container {
+        padding-top: 0 !important;
+    }
+    .full-banner {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
         background-color: #82cbb2;
-        padding: 1.2rem 2rem;
+        color: white;
+        padding: 1rem 2rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        color: white;
+        z-index: 1000;
         font-family: 'Segoe UI', sans-serif;
-        border-bottom: 2px solid #66b3a6;
-        border-radius: 0 0 12px 12px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     .top-left {
         display: flex;
         align-items: center;
     }
     .top-left img {
-        height: 28px;
-        margin-right: 12px;
+        height: 26px;
+        margin-right: 10px;
+    }
+    .top-left h3 {
+        margin: 0;
+        font-size: 22px;
+        font-weight: bold;
     }
     .top-center a {
-        margin: 0 20px;
+        margin: 0 18px;
         text-decoration: none;
         color: white;
         font-weight: 500;
@@ -61,10 +72,10 @@ st.markdown("""
     }
     </style>
 
-    <div class="top-banner">
+    <div class="full-banner">
         <div class="top-left">
             <img src="https://img.icons8.com/fluency/48/calendar.png"/>
-            <h3 style="margin: 0;">SubTrack</h3>
+            <h3>SubTrack</h3>
         </div>
         <div class="top-center">
             <a href="#">Dashboard</a>
@@ -77,7 +88,10 @@ st.markdown("""
             <span style="font-size: 15px;">Gerard Ryan</span>
         </div>
     </div>
+
+    <br><br><br><br>
 """, unsafe_allow_html=True)
+
 
 # Sample subscription data
 data = {
