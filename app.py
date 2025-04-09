@@ -95,6 +95,16 @@ page = st.sidebar.radio("Navigation", [
 # Remove everything from sidebar
 st.sidebar.empty()
 
+import streamlit as st
+
+st.set_page_config(page_title="SubTrack", layout="wide")
+
+# Sidebar with just branding
+st.sidebar.title("📅 SubTrack")
+
+# Main app content
+st.title("Welcome to SubTrack")
+st.write("You’ve removed the sidebar menu — now you can display a single page.")
 
 
 
