@@ -78,41 +78,45 @@ import streamlit as st
 # --- SETUP STATE ---
 if "show_cancel_confirm" not in st.session_state:
     st.session_state.show_cancel_confirm = False
+import streamlit as st
 
-# --- CANCEL SCREEN ---
-if st.session_state.show_cancel_confirm:
+# --- SESSION STATE SETUP ---
+if "confirm_cancel" not in st.session_state:
+    st.session_state.confirm_cancel = False
+
+
+# --- CONFIRMATION SCREEN ---
+if st.session_state.confirm_cancel:
     st.markdown("""
         <div style='
             background-color: white;
-            padding: 60px 40px;
+            padding: 40px;
             border-radius: 12px;
-            text-align: center;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            margin-top: 100px;
+            text-align: center;
+            margin-top: 80px;
         '>
-            <h1 style='font-size: 30px; color: #333;'>⚠️ Are you sure you want to cancel?</h1>
-            <br>
-            <button onclick="window.location.reload();" style='
-                background-color: #f0f0f0;
-                padding: 10px 20px;
-                border-radius: 8px;
-                font-size: 16px;
-                margin-right: 15px;
-                border: none;
-                cursor: pointer;
-            '>🔙 Go Back</button>
-
-            <button style='
-                background-color: #ff5c5c;
-                color: white;
-                padding: 10px 20px;
-                border-radius: 8px;
-                font-size: 16px;
-                border: none;
-                cursor: pointer;
-            '>✅ Yes, Cancel</button>
+            <h2 style='color: #333;'>⚠️ Are you sure you want to cancel?</h2>
         </div>
     """, unsafe_allow_html=True)
+
+    # Button row
+    col1, col2 = st.columns([1, 1])
+    with col1:
+        if st.button("🔙 Go Back"):
+            st.session_state.confirm_cancel = False  # Back to main screen
+
+    with col2:
+        if st.button("✅ Yes, Cancel"):
+            st.success("Subscription has been cancelled.")
+            st.session_state.confirm_cancel = False  # You can leave this True if you want to hide the rest of UI afterward
+
+
+# --- MAIN SCREEN ---
+else:
+    # Example: replace this with your real button tied to a specific sub
+    if st.button("Cancel Subscription"):
+        st.session_state.confirm_cancel = True
 
 # --- MAIN SCREEN (NORMAL UI) ---
 else:
