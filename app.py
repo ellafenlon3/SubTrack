@@ -22,7 +22,6 @@ st.markdown("""
     font-family: "Segoe UI", sans-serif;
     font-size: 15px;
 '>
-    Save up to 25% on your monthly subscriptions with SubTrack Premium –
 </div>
 """, unsafe_allow_html=True)
 
