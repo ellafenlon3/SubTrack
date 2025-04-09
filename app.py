@@ -67,44 +67,6 @@ with tab4:
     st.write("Personalization or mock user settings here.")
 page = st.sidebar.radio("Navigation", ["Dashboard", "My Subscriptions", "Analytics", "Settings"])
 
-if page == "Dashboard":
-    st.header("📊 Dashboard")
-    st.write("Show key metrics, charts, profile box here.")
-
-elif page == "My Subscriptions":
-    st.header("📋 My Subscriptions")
-    st.write("List of all active and inactive subscriptions.")
-
-elif page == "Analytics":
-    st.header("📈 Analytics")
-    st.write("Trends, forgotten subs, spending insights.")
-
-elif page == "Settings":
-    st.header("⚙️ Settings")
-    st.write("Update preferences or profile.")
-st.sidebar.title("📅 SubTrack")
-st.sidebar.markdown("### 👤 John Smith")
-st.sidebar.markdown("---")
-st.sidebar.title("📅 SubTrack")
-page = st.sidebar.radio("Navigation", [
-    "Dashboard",
-    "My Subscriptions",
-    "Analytics",
-    "Settings"
-], key="main_sidebar_nav")
-# Remove everything from sidebar
-st.sidebar.empty()
-
-import streamlit as st
-
-st.set_page_config(page_title="SubTrack", layout="wide")
-
-# Sidebar with just branding
-st.sidebar.title("📅 SubTrack")
-
-# Main app content
-st.title("Welcome to SubTrack")
-st.write("You’ve removed the sidebar menu — now you can display a single page.")
 
 
 
