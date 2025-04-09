@@ -50,24 +50,6 @@ except Exception as e:
     st.error(f"⚠️ Error reading data: {e}")
 tab1, tab2, tab3, tab4 = st.tabs(["📊 Dashboard", "📋 My Subscriptions", "📈 Analytics", "⚙️ Settings"])
 
-with tab1:
-    st.header("Dashboard")
-    st.write("Show key metrics, charts, or summaries here.")
-
-with tab2:
-    st.header("My Subscriptions")
-    st.write("List subscriptions, allow filtering, user-level info.")
-
-with tab3:
-    st.header("Analytics")
-    st.write("Display graphs, forgotten subs, usage insights, etc.")
-
-with tab4:
-    st.header("Settings")
-    st.write("Personalization or mock user settings here.")
-page = st.sidebar.radio("Navigation", ["Dashboard", "My Subscriptions", "Analytics", "Settings"])
-
-
 
 
 
