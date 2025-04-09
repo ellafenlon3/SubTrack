@@ -82,6 +82,50 @@ import streamlit as st
 
 col1, col2 = st.columns([1, 3])
 
+import streamlit as st
+
+# --- 1. Setup session state ---
+if "confirm_cancel" not in st.session_state:
+    st.session_state.confirm_cancel = False
+
+
+# --- 2. Confirm screen if cancel was clicked ---
+if st.session_state.confirm_cancel:
+    # Styled confirmation block
+    st.markdown("""
+        <div style='
+            background-color: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-top: 60px;
+        '>
+            <h2 style='color: #333;'>⚠️ Are you sure you want to cancel?</h2>
+        </div>
+    """, unsafe_allow_html=True)
+
+    # Two buttons
+    col1, col2 = st.columns([1, 1])
+    with col1:
+        if st.button("🔙 Go Back"):
+            st.session_state.confirm_cancel = False  # Return to main screen
+
+    with col2:
+        if st.button("✅ Yes, Cancel"):
+            st.success("Subscription has been cancelled.")  # You can add logic here
+            st.session_state.confirm_cancel = False  # Return to main screen after confirmation
+
+
+# --- 3. Normal page content (when not confirming) ---
+else:
+    st.write("🧾 Here’s your subscription overview!")
+
+    # Cancel button to trigger confirmation
+    if st.button("Cancel Subscription"):
+        st.session_state.confirm_cancel = True
+
+
 with col1:
     # 👤 Profile card
     st.markdown("""
