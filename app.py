@@ -24,28 +24,29 @@ st.markdown("""
 '>
 </div>
 """, unsafe_allow_html=True)
-
 import streamlit as st
 
-# --- 1. Setup upgrade modal state ---
+# --- 1. Session state to track upgrade modal ---
 if "show_upgrade" not in st.session_state:
     st.session_state.show_upgrade = False
 
-# --- 2. Banner with clickable upgrade ---
+# --- 2. Upgrade banner with trigger ---
 st.markdown("""
 <div style='background-color:#7EC6AD; padding:10px; text-align:center; border-radius:4px;'>
     <span style='color:white; font-weight:bold;'>
         Save up to 25% on your monthly subscriptions with SubTrack Premium – 
-        <a href='#' onclick="window.location.reload();" style='color:white; text-decoration:underline;'>Upgrade now</a>
+        <a href='#' style='color:white; text-decoration:underline;' onclick="window.location.reload()">Upgrade now</a>
     </span>
 </div>
 """, unsafe_allow_html=True)
 
+# For Streamlit to handle interaction, we use a button
 if st.button("🚀 Click Here to Upgrade (Dev Trigger)"):
     st.session_state.show_upgrade = True
 
-# --- 3. Upgrade Modal UI ---
+# --- 3. Upgrade Modal ---
 if st.session_state.show_upgrade:
+    # Styling
     st.markdown("""
     <style>
         .overlay {
@@ -97,24 +98,40 @@ if st.session_state.show_upgrade:
             cursor: pointer;
         }
     </style>
+    """, unsafe_allow_html=True)
 
+    # HTML for modal
+    st.markdown("""
     <div class='overlay'></div>
     <div class='modal'>
-        <button class='back-btn' onclick="window.location.reload()">← Go Back</button>
-        <h2>Upgrade Now</h2>
-        <p>One-time payment of €10.99</p>
-        <input type='text' placeholder='Name on Card'>
-        <input type='text' placeholder='Card Number'>
-        <div style='display:flex; justify-content: space-between;'>
-            <input type='text' placeholder='MM/YY' style='width: 45%;'>
-            <input type='text' placeholder='CVC' style='width: 45%;'>
-        </div>
-        <div class='modal-buttons'>
-            <button class='pay-btn'>💳 Pay Now</button>
-        </div>
+        <form>
+            <button class='back-btn' name='go_back'>← Go Back</button>
+            <h2>Upgrade Now</h2>
+            <p>One-time payment of €10.99</p>
+            <input type='text' placeholder='Name on Card' required>
+            <input type='text' placeholder='Card Number' required>
+            <div style='display:flex; justify-content: space-between;'>
+                <input type='text' placeholder='MM/YY' style='width: 45%;' required>
+                <input type='text' placeholder='CVC' style='width: 45%;' required>
+            </div>
+            <div class='modal-buttons'>
+                <button class='pay-btn'>💳 Pay Now</button>
+            </div>
+        </form>
     </div>
     """, unsafe_allow_html=True)
 
+    # --- Go Back Logic ---
+    # Button doesn't exist inside modal directly in Streamlit; we simulate via regular Streamlit button
+    st.markdown("<br><br>", unsafe_allow_html=True)
+    if st.button("⬅️ Go Back to Home (Fix Button)", key="go_back_btn"):
+        st.session_state.show_upgrade = False
+        st.rerun()  # Refresh to remove modal
+
+# --- 4. Normal Content (if modal not active) ---
+if not st.session_state.show_upgrade:
+    st.title("🎓 SubTrack – Smart Subscriptions for Students")
+    st.write("Welcome to the homepage!")
 
 # ✅ Padding below banner so content isn't hidden
 st.markdown("""
