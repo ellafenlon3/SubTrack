@@ -14,7 +14,7 @@ import pandas as pd
 
 # Initialize session state variable
 if "show_upgrade" not in st.session_state:
-    st.session_state show_upgrade = False
+    st.session_state.show_upgrade = False
 
 
 import streamlit as st
