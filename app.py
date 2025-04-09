@@ -274,5 +274,56 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
+st.markdown("""
+<div style='
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 25px 30px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    max-width: 1000px;
+    margin: 40px auto;
+    font-family: "Segoe UI", sans-serif;
+'>
+    <h4 style='margin-bottom: 20px;'>Upcoming Renewals</h4>
+
+    <div style='
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 12px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 500;
+        color: #333;
+    '>
+        <div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div><div>Sun</div>
+    </div>
+
+    <div style='
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 12px;
+        text-align: center;
+        margin-top: 12px;
+        font-size: 14px;
+        font-weight: 500;
+    '>
+        <div style='padding: 12px; background-color: #f9f9f9; border-radius: 8px;'>7</div>
+        <div style='padding: 12px; background-color: #f9f9f9; border-radius: 8px;'>8</div>
+        <div style='padding: 12px; background-color: #f9f9f9; border-radius: 8px;'>9</div>
+        <div style='padding: 12px; background-color: #f9f9f9; border-radius: 8px;'>10</div>
+        <div style='padding: 12px; background-color: #f9f9f9; border-radius: 8px;'>11</div>
+        <div style='padding: 12px; background-color: #e7f6f1; border-radius: 8px; color: #197d66; font-weight: 600;'>12<br>FitnessPal</div>
+        <div style='padding: 12px; background-color: #f9f9f9; border-radius: 8px;'>13</div>
+
+        <div style='padding: 12px; background-color: #f9f9f9; border-radius: 8px;'>14</div>
+        <div style='padding: 12px; background-color: #e7f6f1; border-radius: 8px; color: #197d66; font-weight: 600;'>15<br>Netflix</div>
+        <div style='padding: 12px; background-color: #f9f9f9; border-radius: 8px;'>16</div>
+        <div style='padding: 12px; background-color: #f9f9f9; border-radius: 8px;'>17</div>
+        <div style='padding: 12px; background-color: #e7f6f1; border-radius: 8px; color: #197d66; font-weight: 600;'>18<br>Disney+</div>
+        <div style='padding: 12px; background-color: #f9f9f9; border-radius: 8px;'>19</div>
+        <div style='padding: 12px; background-color: #f9f9f9; border-radius: 8px;'>20</div>
+    </div>
+</div>
+""", unsafe_allow_html=True)
 
 
