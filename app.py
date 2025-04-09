@@ -61,27 +61,3 @@ data = {
     "Status": ["Active", "Forgotten", "Active", "Active", "Forgotten", "Active"],
     "Next Billing": ["Apr 15, 2025", "Apr 22, 2025", "Apr 18, 2025", "Apr 30, 2025", "Apr 27, 2025", "Apr 12, 2025"]
 }
-
-df = pd.DataFrame(data)
-
-# Show it on the dashboard
-st.subheader("📋 Your Subscriptions")
-st.dataframe(df, use_container_width=True)
-import streamlit as st
-import pandas as pd
-
-# App setup
-st.set_page_config(page_title="SubTrack", layout="wide")
-
-# Top navigation (no sidebar)
-page = st.radio(
-    "Navigate to:",
-    ["Dashboard", "My Subscriptions", "Analytics", "Settings"],
-    horizontal=True,
-    key="top_nav"
-)
-
-
-
-
-
