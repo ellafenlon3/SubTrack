@@ -13,16 +13,6 @@ try:
     df = pd.read_excel(DATA_FILE)
 
 
-    # Average monthly subscription cost
-    if 'total_monthly_subscription_cost' in df.columns:
-        avg_cost = df['total_monthly_subscription_cost'].mean()
-        st.metric("💰 Avg. Monthly Subscription Cost (€)", round(avg_cost, 2))
-
-    # Percent of users who cancelled a subscription
-    if 'cancelled_any_subscription' in df.columns:
-        cancelled_pct = df['cancelled_any_subscription'].mean() * 100
-        st.metric("❌ % Cancelled Subscriptions", f"{round(cancelled_pct, 1)}%")
-
     # Forgotten subscription
     if 'has_forgotten_subscription' in df.columns:
         forgotten_pct = df['has_forgotten_subscription'].mean() * 100
