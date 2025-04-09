@@ -311,7 +311,6 @@ else:
                     "Next Billing": next_billing
                 }
                     ignore_index=True
-                )
                 st.success(f"{service} added successfully!")
                 st.session_state.show_add_form = False
             else:
