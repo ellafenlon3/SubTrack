@@ -2,6 +2,17 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
+st.markdown("""
+    <style>
+    body {
+        background-color: #f5f5f5;
+    }
+    .stApp {
+        background-color: #f5f5f5;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 st.set_page_config(page_title="Subscription Analyzer", layout="centered")
 
 st.title("📊 Student Subscription Analyzer")
