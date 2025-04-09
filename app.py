@@ -48,7 +48,6 @@ try:
 
 except Exception as e:
     st.error(f"⚠️ Error reading data: {e}")
-
 tab1, tab2, tab3, tab4 = st.tabs(["📊 Dashboard", "📋 My Subscriptions", "📈 Analytics", "⚙️ Settings"])
 
 with tab1:
@@ -66,5 +65,25 @@ with tab3:
 with tab4:
     st.header("Settings")
     st.write("Personalization or mock user settings here.")
+page = st.sidebar.radio("Navigation", ["Dashboard", "My Subscriptions", "Analytics", "Settings"])
+
+if page == "Dashboard":
+    st.header("📊 Dashboard")
+    st.write("Show key metrics, charts, profile box here.")
+
+elif page == "My Subscriptions":
+    st.header("📋 My Subscriptions")
+    st.write("List of all active and inactive subscriptions.")
+
+elif page == "Analytics":
+    st.header("📈 Analytics")
+    st.write("Trends, forgotten subs, spending insights.")
+
+elif page == "Settings":
+    st.header("⚙️ Settings")
+    st.write("Update preferences or profile.")
+
+
+
 
 
