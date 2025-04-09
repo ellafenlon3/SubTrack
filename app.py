@@ -23,7 +23,6 @@ st.markdown("""
     font-size: 15px;
 '>
     Save up to 25% on your monthly subscriptions with SubTrack Premium –
-    <a href='#' style='color: white; text-decoration: underline;'>Upgrade now</a>
 </div>
 """, unsafe_allow_html=True)
 
