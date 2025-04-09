@@ -44,10 +44,10 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Trigger upgrade modal if clicked
-upgrade_clicked = st.session_state.upgrade_mode or st.experimental_get_query_params().get("upgrade") == ["1"]
+upgrade_clicked = st.session_state.upgrade_mode or st.query_params().get("upgrade") == ["1"]
 
 # Set upgrade mode on manual trigger
-if "upgrade" in st.experimental_get_query_params():
+if "upgrade" in st.query_params():
     st.session_state.upgrade_mode = True
 
 if upgrade_clicked:
