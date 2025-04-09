@@ -8,21 +8,13 @@ st.title("📊 Student Subscription Analyzer")
 
 # Read the uploaded Excel file
 DATA_FILE = "Mock_Student_Subscription_Data Econometrics.xlsx"
-import pandas as pd
 import streamlit as st
-st.markdown("""
-    <style>
-    .main {
-        padding-top: 100px !important;
-    }
-    </style>
-""", unsafe_allow_html=True)
+import pandas as pd
 
+# Banner
 st.markdown("""
     <style>
-    .block-container {
-        padding-top: 0 !important;
-    }
+    .block-container { padding-top: 0 !important; }
     .full-banner {
         position: fixed;
         top: 0;
@@ -39,19 +31,9 @@ st.markdown("""
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         border-bottom: 2px solid #66b3a6;
     }
-    .top-left {
-        display: flex;
-        align-items: center;
-    }
-    .top-left img {
-        height: 28px;
-        margin-right: 10px;
-    }
-    .top-left h3 {
-        margin: 0;
-        font-size: 22px;
-        font-weight: bold;
-    }
+    .top-left { display: flex; align-items: center; }
+    .top-left img { height: 28px; margin-right: 10px; }
+    .top-left h3 { margin: 0; font-size: 22px; font-weight: bold; }
     .top-center a {
         margin: 0 20px;
         text-decoration: none;
@@ -59,13 +41,8 @@ st.markdown("""
         font-weight: 500;
         font-size: 16px;
     }
-    .top-center a:hover {
-        text-decoration: underline;
-    }
-    .top-right {
-        display: flex;
-        align-items: center;
-    }
+    .top-center a:hover { text-decoration: underline; }
+    .top-right { display: flex; align-items: center; }
     .user-circle {
         background-color: white;
         color: #82cbb2;
@@ -97,10 +74,16 @@ st.markdown("""
             <span style="font-size: 15px;">Gerard Ryan</span>
         </div>
     </div>
-
 """, unsafe_allow_html=True)
 
-
+# ✅ Padding below banner so content isn't hidden
+st.markdown("""
+    <style>
+    .main {
+        padding-top: 100px !important;
+    }
+    </style>
+""", unsafe_allow_html=True)
 
 # Sample subscription data
 data = {
