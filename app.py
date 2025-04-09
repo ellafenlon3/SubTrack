@@ -13,8 +13,8 @@ import streamlit as st
 import pandas as pd
 
 # Initialize session state variable
-if "show_upgrade" not in st.session_state:
-    st.session_state.show_upgrade = False
+if "show_upgrade" not in:st.session_state
+    st.session_state show_upgrade = False
 
 
 import streamlit as st
@@ -267,7 +267,7 @@ import pandas as pd
 
 # --- Initialize session state ---
 if "subscription_data" not in st.session_state:
-    st.session_state.subscription_data = pd.DataFrame({
+    pd.DataFrame({
         "Service": ["Netflix", "Spotify Premium", "Disney+", "Adobe Creative Cloud", "Xbox Game Pass", "FitnessPal Pro"],
         "Category": ["Entertainment", "Music", "Entertainment", "Education", "Gaming", "Fitness"],
         "Monthly Cost (€)": [14.99, 9.99, 8.99, 19.99, 9.99, 4.99],
@@ -282,7 +282,7 @@ if "show_add_form" not in st.session_state:
 # --- Show subscription table ---
 if not st.session_state.show_add_form:
     st.markdown("### 📄 Your Subscriptions")
-    st.dataframe(st.session_state.subscription_data, use_container_width=True)
+    st.dataframe(use_container_width=True)
 
     if st.button("➕ Add New Subscription"):
         st.session_state.show_add_form = True
@@ -310,8 +310,6 @@ else:
                     "Status": status,
                     "Next Billing": next_billing
                 }
-                st.session_state.subscription_data = pd.concat(
-                    [st.session_state.subscription_data, pd.DataFrame([new_row])],
                     ignore_index=True
                 )
                 st.success(f"{service} added successfully!")
