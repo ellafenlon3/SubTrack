@@ -27,6 +27,67 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
+import streamlit as st
+
+# --- Setup session state for upgrade flow ---
+if "upgrade" not in st.session_state:
+    st.session_state.upgrade = False
+
+if st.session_state.upgrade:
+    # Render a faded overlay background via CSS
+    st.markdown("""
+        <style>
+            .overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 1000;
+            }
+        </style>
+        <div class="overlay"></div>
+    """, unsafe_allow_html=True)
+
+    # Render the turquoise price box in the center of the screen
+    st.markdown("""
+        <div style="
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #7EC6AD;
+            padding: 40px;
+            border-radius: 12px;
+            color: white;
+            text-align: center;
+            font-family: 'Segoe UI', sans-serif;
+            z-index: 1001;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        ">
+            <h2 style="margin: 0; font-size: 36px;">Upgrade Now</h2>
+            <p style="font-size: 24px; margin: 20px 0;">One-time payment of €10.99</p>
+        </div>
+    """, unsafe_allow_html=True)
+
+    # Render two buttons below the overlay price box
+    # Since the overlay uses fixed positioning, these buttons are rendered in the main Streamlit flow
+    col1, col2 = st.columns(2)
+    with col1:
+        if st.button("← Go Back", key="upgrade_go_back"):
+            st.session_state.upgrade = False
+    with col2:
+        if st.button("Pay Now", key="pay_now"):
+            st.info("Proceeding to payment details page...")
+
+else:
+    # Main app content
+    st.write("Welcome to the app!")
+    
+    # This button triggers the upgrade overlay
+    if st.button("Upgrade Now", key="upgrade_button"):
+        st.session_state.upgrade = True
 
 # ✅ Padding below banner so content isn't hidden
 st.markdown("""
