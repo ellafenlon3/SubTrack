@@ -25,108 +25,91 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 import streamlit as st
+import streamlit as st
 
-# --- 1. Session state to track upgrade modal ---
-if "show_upgrade" not in st.session_state:
-    st.session_state.show_upgrade = False
+# Initialize session state
+if "upgrade_mode" not in st.session_state:
+    st.session_state.upgrade_mode = False
 
-# --- 2. Upgrade banner with trigger ---
+# Handle "Go Back"
+if st.button("⬅ Go Back to Home", key="go_back_button") and st.session_state.upgrade_mode:
+    st.session_state.upgrade_mode = False
+
+# Display main banner
 st.markdown("""
-<div style='background-color:#7EC6AD; padding:10px; text-align:center; border-radius:4px;'>
-    <span style='color:white; font-weight:bold;'>
-        Save up to 25% on your monthly subscriptions with SubTrack Premium – 
-        <a href='#' style='color:white; text-decoration:underline;' onclick="window.location.reload()">Upgrade now</a>
-    </span>
+<div style="background-color: #7DD6B6; padding: 10px; text-align: center;">
+    <strong style="color: white;">Save up to 25% on your monthly subscriptions with SubTrack Premium – 
+    <a href="#" onclick="window.location.reload();" style="color: white; text-decoration: underline;" id="upgrade-link">Upgrade now</a></strong>
 </div>
 """, unsafe_allow_html=True)
 
-# For Streamlit to handle interaction, we use a button
-if st.button("🚀 Click Here to Upgrade (Dev Trigger)"):
-    st.session_state.show_upgrade = True
+# Trigger upgrade modal if clicked
+upgrade_clicked = st.session_state.upgrade_mode or st.experimental_get_query_params().get("upgrade") == ["1"]
 
-# --- 3. Upgrade Modal ---
-if st.session_state.show_upgrade:
-    # Styling
-    st.markdown("""
-    <style>
+# Set upgrade mode on manual trigger
+if "upgrade" in st.experimental_get_query_params():
+    st.session_state.upgrade_mode = True
+
+if upgrade_clicked:
+    st.markdown(
+        """
+        <style>
         .overlay {
             position: fixed;
             top: 0; left: 0;
             width: 100vw; height: 100vh;
-            background: rgba(0,0,0,0.6);
+            background: rgba(0,0,0,0.4);
             z-index: 999;
         }
         .modal {
-            position: fixed;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #7EC6AD;
-            color: white;
-            padding: 30px;
+            background-color: #7DD6B6;
+            padding: 40px;
             border-radius: 12px;
-            width: 400px;
             text-align: center;
-            z-index: 1000;
+            width: 350px;
+            margin: 100px auto;
         }
-        .modal input {
-            width: 90%;
+        input {
+            width: 100%;
             padding: 10px;
-            margin: 8px 0;
-            border: none;
+            margin-bottom: 10px;
             border-radius: 5px;
-        }
-        .modal-buttons {
-            margin-top: 15px;
-        }
-        .pay-btn {
-            background-color: white;
-            color: #333;
-            font-weight: bold;
-            padding: 10px 30px;
             border: none;
-            border-radius: 5px;
-            cursor: pointer;
         }
-        .back-btn {
-            position: absolute;
-            top: 12px;
-            left: 16px;
-            background: none;
-            border: none;
-            font-size: 16px;
-            color: white;
-            cursor: pointer;
-        }
-    </style>
-    """, unsafe_allow_html=True)
-
-    # HTML for modal
-    st.markdown("""
-    <div class='overlay'></div>
-    <div class='modal'>
-        <form>
-            <button class='back-btn' name='go_back'>← Go Back</button>
-            <h2>Upgrade Now</h2>
-            <p>One-time payment of €10.99</p>
-            <input type='text' placeholder='Name on Card' required>
-            <input type='text' placeholder='Card Number' required>
-            <div style='display:flex; justify-content: space-between;'>
-                <input type='text' placeholder='MM/YY' style='width: 45%;' required>
-                <input type='text' placeholder='CVC' style='width: 45%;' required>
+        </style>
+        <div class='overlay'>
+            <div class='modal'>
+                <div style="text-align: left;">
+                    <form method="dialog">
+                        <button type="submit" style="background:none;border:none;color:white;cursor:pointer;" formnovalidate>
+                            ⬅ Go Back
+                        </button>
+                    </form>
+                </div>
+                <h2 style="color: white;">Upgrade Now</h2>
+                <p style="color: white;">One-time payment of €10.99</p>
+                <form action="" method="POST">
+                    <input type="text" name="name" placeholder="Name on Card" />
+                    <input type="text" name="card" placeholder="Card Number" />
+                    <div style="display: flex; gap: 10px;">
+                        <input type="text" name="exp" placeholder="MM/YY" />
+                        <input type="text" name="cvc" placeholder="CVC" />
+                    </div>
+                    <button type="submit" style="margin-top: 10px; background-color: white; color: #00A9B4; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer;">
+                        💳 Pay Now
+                    </button>
+                </form>
             </div>
-            <div class='modal-buttons'>
-                <button class='pay-btn'>💳 Pay Now</button>
-            </div>
-        </form>
-    </div>
-    """, unsafe_allow_html=True)
-
-    # --- Go Back Logic ---
-    # Button doesn't exist inside modal directly in Streamlit; we simulate via regular Streamlit button
-    st.markdown("<br><br>", unsafe_allow_html=True)
-    if st.button("⬅️ Go Back to Home (Fix Button)", key="go_back_btn"):
-        st.session_state.show_upgrade = False
-        st.rerun()  # Refresh to remove modal
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+else:
+    st.title("Subscription Tracker & Cancellation App")
+    st.markdown("Welcome to SubTrack!")
+    if st.button("Upgrade now", key="upgrade_button"):
+        st.session_state.upgrade_mode = True
+        st.experimental_set_query_params(upgrade="1")
 
 # --- 4. Normal Content (if modal not active) ---
 if not st.session_state.show_upgrade:
