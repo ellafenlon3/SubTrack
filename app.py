@@ -92,6 +92,8 @@ page = st.sidebar.radio("Navigation", [
     "Analytics",
     "Settings"
 ], key="main_sidebar_nav")
+# Remove everything from sidebar
+st.sidebar.empty()
 
 
 
