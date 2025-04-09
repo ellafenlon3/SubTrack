@@ -11,11 +11,6 @@ DATA_FILE = "Mock_Student_Subscription_Data Econometrics.xlsx"
 import pandas as pd
 import streamlit as st
 
-except Exception as e:
-    st.error(f"⚠️ Error reading data: {e}")
-tab1 = st.tabs(["📊 Dashboard"])
-import pandas as pd
-import streamlit as st
 
 # Sample subscription data
 data = {
