@@ -164,12 +164,6 @@ data = {
 
 df = pd.DataFrame(data)
 
-except Exception as e:
-    st.error(f"⚠️ Error reading data: {e}")
-tab1 = st.tabs(["📊 Dashboard"])
-import pandas as pd
-import streamlit as st
-
 # Show it on the dashboard
 st.subheader("📋 Your Subscriptions")
 st.dataframe(df, use_container_width=True)
