@@ -310,7 +310,7 @@ else:
                     "Status": status,
                     "Next Billing": next_billing
                 }
-                    ignore_index=True
+                   df = pd.concat([df, new_row], ignore_index=True)
                 st.success(f"{service} added successfully!")
                 st.session_state.show_add_form = False
             else:
