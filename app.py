@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 st.set_page_config(page_title="Subscription Analyzer", layout="centered")
 
-st.title("📊SubTrack")
+st.title("🎓SubTrack")
 
 # Read the uploaded Excel file
 DATA_FILE = "Mock_Student_Subscription_Data Econometrics.xlsx"
@@ -89,27 +89,7 @@ if upgrade_clicked:
             </div>
         </div>
     """, unsafe_allow_html=True)
-else:
-    # --- Normal home content ---
-    st.title("🎓 SubTrack")
-    st.subheader("Subscription Tracker & Cancellation App")
 
-    st.write("💡 Meet SubTrack – your ultimate student sidekick!")
-    st.write("From Netflix to gym memberships, manage all your subs in one place.")
-    if st.button("Upgrade now"):
-        st.session_state.upgrade_mode = True
-
-# --- 4. Normal Content (if modal not active) ---
-if not st.session_state.show_upgrade:
-    st.title("🎓 SubTrack – Smart Subscriptions for Students")
-# ✅ Padding below banner so content isn't hidden
-st.markdown("""
-    <style>
-    .main {
-        padding-top: 100px !important;
-    }
-    </style>
-""", unsafe_allow_html=True)
 # 1. Full-width banner (already in your file)
 
 # 2. Spacing CSS to push down content
