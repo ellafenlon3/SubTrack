@@ -49,6 +49,24 @@ try:
 except Exception as e:
     st.error(f"⚠️ Error reading data: {e}")
 tab1, tab2, tab3, tab4 = st.tabs(["📊 Dashboard", "📋 My Subscriptions", "📈 Analytics", "⚙️ Settings"])
+import pandas as pd
+import streamlit as st
+
+# Sample subscription data
+data = {
+    "Service": ["Netflix", "Spotify Premium", "Disney+", "Adobe Creative Cloud", "Xbox Game Pass", "FitnessPal Pro"],
+    "Category": ["Entertainment", "Music", "Entertainment", "Education", "Gaming", "Fitness"],
+    "Monthly Cost (€)": [14.99, 9.99, 8.99, 19.99, 9.99, 4.99],
+    "Usage (hrs)": [12.5, 0.0, 4.2, 5.8, 0.0, 3.2],
+    "Status": ["Active", "Forgotten", "Active", "Active", "Forgotten", "Active"],
+    "Next Billing": ["Apr 15, 2025", "Apr 22, 2025", "Apr 18, 2025", "Apr 30, 2025", "Apr 27, 2025", "Apr 12, 2025"]
+}
+
+df = pd.DataFrame(data)
+
+# Show it on the dashboard
+st.subheader("📋 Your Subscriptions")
+st.dataframe(df, use_container_width=True)
 
 
 
