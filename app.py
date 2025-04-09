@@ -51,7 +51,7 @@ st.markdown("""
 # 3. 💬 Subtitle right under banner
 st.markdown("""
 <div style='text-align: center; font-size: 50px; color: #444; margin-top: 10px; margin-bottom: 10px; font-weight: bold;'>
-    Subscription Tracker & cancellation app
+    Subscription Tracker & Cancellation App
 </div>
 """, unsafe_allow_html=True)
 
