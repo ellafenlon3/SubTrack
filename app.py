@@ -131,7 +131,7 @@ if st.session_state.show_upgrade:
 # --- 4. Normal Content (if modal not active) ---
 if not st.session_state.show_upgrade:
     st.title("🎓 SubTrack – Smart Subscriptions for Students")
-    st.write("Welcome to the homepage!")
+    st.write()
 
 # ✅ Padding below banner so content isn't hidden
 st.markdown("""
