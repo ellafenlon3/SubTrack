@@ -85,6 +85,13 @@ elif page == "Settings":
 st.sidebar.title("📅 SubTrack")
 st.sidebar.markdown("### 👤 John Smith")
 st.sidebar.markdown("---")
+st.sidebar.title("📅 SubTrack")
+page = st.sidebar.radio("Navigation", [
+    "Dashboard", 
+    "My Subscriptions", 
+    "Analytics", 
+    "Settings"
+])
 
 
 
