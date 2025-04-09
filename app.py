@@ -28,23 +28,6 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-st.markdown("""
-<div style='
-    background-color: #ffffff;
-    border-radius: 10px;
-    padding: 20px 25px;
-    margin-top: 20px;
-    margin-bottom: 30px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    font-family: "Segoe UI", sans-serif;
-    font-size: 16px;
-'>
-  🎓 <strong>Meet SubTrack – your ultimate student sidekick for subscription sanity!</strong><br><br>
-  From Netflix to gym memberships, keep track of every subscription in one place, get alerts before free trials end, and cancel what you don’t use (finally 😅).<br><br>
-  Built for busy students who’d rather binge shows than budgets – SubTrack saves time, money, and stress!
-</div>
-""", unsafe_allow_html=True)
-
 
 # ✅ Padding below banner so content isn't hidden
 st.markdown("""
@@ -71,6 +54,25 @@ st.markdown("""
     Subscription Tracker & cancellation app
 </div>
 """, unsafe_allow_html=True)
+
+
+st.markdown("""
+<div style='
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px 25px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    font-family: "Segoe UI", sans-serif;
+    font-size: 16px;
+'>
+  🎓 <strong>Meet SubTrack – your ultimate student sidekick for subscription sanity!</strong><br><br>
+  From Netflix to gym memberships, keep track of every subscription in one place, get alerts before free trials end, and cancel what you don’t use (finally 😅).<br><br>
+  Built for busy students who’d rather binge shows than budgets – SubTrack saves time, money, and stress!
+</div>
+""", unsafe_allow_html=True)
+
 
 st.markdown("""
 <div style='
