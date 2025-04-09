@@ -92,6 +92,12 @@ page = st.sidebar.radio("Navigation", [
     "Analytics", 
     "Settings"
 ])
+page = st.sidebar.radio("Navigation", [
+    "Dashboard",
+    "My Subscriptions",
+    "Analytics",
+    "Settings"
+], key="navigation_radio")
 
 
 
