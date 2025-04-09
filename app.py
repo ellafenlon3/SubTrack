@@ -5,7 +5,12 @@ import matplotlib.pyplot as plt
 
 st.set_page_config(page_title="Subscription Analyzer", layout="centered")
 
-st.title("📊 SubTracker")
+st.title("SubTracker")
+
+import streamlit as st
+
+# Display the logo
+st.image("image.png", width=150)  # You can adjust the width if needed
 
 
 # Read the uploaded Excel file
