@@ -75,3 +75,11 @@ df = pd.DataFrame(data)
 # Show it on the dashboard
 st.subheader("📋 Your Subscriptions")
 st.dataframe(df, use_container_width=True)
+# Show logged-in user name at the bottom of the Dashboard tab
+st.markdown("""
+    <hr style='margin-top: 40px; margin-bottom: 10px;'>
+
+    <div style='text-align: left; font-size: 16px; font-weight: 500; color: #333;'>
+        👤 Logged in as: <span style='color: #2b6777;'>Gerard Ryan</span>
+    </div>
+""", unsafe_allow_html=True)
