@@ -147,9 +147,6 @@ with col1:
         </div>
     """, unsafe_allow_html=True)
 
-# In the Dashboard section (replace/add as needed)
-
-col1, col2 = st.columns([1, 3])
 
 with col1:
     # 👤 Profile card
