@@ -12,12 +12,6 @@ DATA_FILE = "Mock_Student_Subscription_Data Econometrics.xlsx"
 try:
     df = pd.read_excel(DATA_FILE)
 
-
-    # Forgotten subscription
-    if 'has_forgotten_subscription' in df.columns:
-        forgotten_pct = df['has_forgotten_subscription'].mean() * 100
-        st.metric("🧠 % Forgotten Subscriptions", f"{round(forgotten_pct, 1)}%")
-
     # Forecast chart (just an example for now)
     st.subheader("📈 Forecasted Subscription Cost (Next 6 Months)")
     base_cost = df['total_monthly_subscription_cost'].mean()
