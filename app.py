@@ -102,6 +102,28 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
+st.markdown("""
+<div style='
+    background-color: #fdeaea;
+    border-left: 5px solid #f44336;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin: 30px auto 20px;
+    max-width: 900px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+'>
+    <div style='display: flex; align-items: center;'>
+        <span style='font-size: 22px; margin-right: 15px;'>⚠️</span>
+        <div>
+            <p style='margin: 0; font-weight: bold; font-size: 18px;'>Forgotten Subscription Detected!</p>
+            <p style='margin: 5px 0 10px; color: #444;'>You haven’t used your Spotify Premium subscription in 3 months but are still paying €9.99/month.</p>
+            <button style='background-color: #f44336; color: white; padding: 8px 14px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; margin-right: 10px;'>Cancel Subscription</button>
+            <button style='background-color: #f0f0f0; color: #333; padding: 8px 14px; border: none; border-radius: 5px; cursor: pointer;'>Remind Later</button>
+        </div>
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
 
 # Sample subscription data
 data = {
