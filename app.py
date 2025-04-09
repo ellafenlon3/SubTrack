@@ -94,25 +94,6 @@ if page == "Dashboard":
         "Next Billing": ["Apr 15, 2025", "Apr 22, 2025", "Apr 18, 2025", "Apr 30, 2025", "Apr 27, 2025", "Apr 12, 2025"]
     }
 
-    df = pd.DataFrame(data)
-
-    # Display selected columns only
-    st.dataframe(df[["Category", "Usage (hrs)", "Next Billing"]], use_container_width=True)
-
-# My Subscriptions Tab
-elif page == "My Subscriptions":
-    st.title("📋 My Subscriptions")
-    st.write("You can build this section next!")
-
-# Analytics Tab
-elif page == "Analytics":
-    st.title("📈 Analytics")
-    st.write("Analytics page coming soon!")
-
-# Settings Tab
-elif page == "Settings":
-    st.title("⚙️ Settings")
-    st.write("Settings page to be developed.")
 
 
 
