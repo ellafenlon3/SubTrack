@@ -49,31 +49,22 @@ try:
 except Exception as e:
     st.error(f"⚠️ Error reading data: {e}")
 
-st.markdown("""
-    <style>
-    .profile-card {
-        background-color: #f0f8f5;
-        padding: 1rem;
-        border-radius: 10px;
-        width: 220px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        margin-top: 20px;
-        position: absolute;
-        top: 100px;
-        left: 20px;
-        z-index: 1;
-    }
-    .profile-card h4 {
-        margin-top: 0;
-        color: #1b4332;
-    }
-    </style>
+tab1, tab2, tab3, tab4 = st.tabs(["📊 Dashboard", "📋 My Subscriptions", "📈 Analytics", "⚙️ Settings"])
 
-    <div class="profile-card">
-        <h4>Your Profile</h4>
-        <p>Age: 21</p>
-        <p>Monthly Income: €1,200</p>
-        <p>Total Subscriptions: 6</p>
-    </div>
-""", unsafe_allow_html=True)
+with tab1:
+    st.header("Dashboard")
+    st.write("Show key metrics, charts, or summaries here.")
+
+with tab2:
+    st.header("My Subscriptions")
+    st.write("List subscriptions, allow filtering, user-level info.")
+
+with tab3:
+    st.header("Analytics")
+    st.write("Display graphs, forgotten subs, usage insights, etc.")
+
+with tab4:
+    st.header("Settings")
+    st.write("Personalization or mock user settings here.")
+
 
