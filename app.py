@@ -213,7 +213,6 @@ try:
 except Exception as e:
     st.error(f"Something went wrong: {e}")
 
-
 # 🧪 Free Trial Tracker (Styled)
 st.markdown("""
 <div style='
