@@ -67,6 +67,52 @@ df = pd.DataFrame(data)
 # Show it on the dashboard
 st.subheader("📋 Your Subscriptions")
 st.dataframe(df, use_container_width=True)
+import streamlit as st
+import pandas as pd
+
+# App setup
+st.set_page_config(page_title="SubTrack", layout="wide")
+
+# Top navigation (no sidebar)
+page = st.radio(
+    "Navigate to:",
+    ["Dashboard", "My Subscriptions", "Analytics", "Settings"],
+    horizontal=True,
+    key="top_nav"
+)
+
+# Dashboard Tab
+if page == "Dashboard":
+    st.title("📊 Dashboard")
+    st.subheader("📋 Your Subscriptions Overview")
+
+    # Sample subscription data (edit as needed)
+    data = {
+        "Service": ["Netflix", "Spotify Premium", "Disney+", "Adobe Creative Cloud", "Xbox Game Pass", "FitnessPal Pro"],
+        "Category": ["Entertainment", "Music", "Entertainment", "Education", "Gaming", "Fitness"],
+        "Usage (hrs)": [12.5, 0.0, 4.2, 5.8, 0.0, 3.2],
+        "Next Billing": ["Apr 15, 2025", "Apr 22, 2025", "Apr 18, 2025", "Apr 30, 2025", "Apr 27, 2025", "Apr 12, 2025"]
+    }
+
+    df = pd.DataFrame(data)
+
+    # Display selected columns only
+    st.dataframe(df[["Category", "Usage (hrs)", "Next Billing"]], use_container_width=True)
+
+# My Subscriptions Tab
+elif page == "My Subscriptions":
+    st.title("📋 My Subscriptions")
+    st.write("You can build this section next!")
+
+# Analytics Tab
+elif page == "Analytics":
+    st.title("📈 Analytics")
+    st.write("Analytics page coming soon!")
+
+# Settings Tab
+elif page == "Settings":
+    st.title("⚙️ Settings")
+    st.write("Settings page to be developed.")
 
 
 
