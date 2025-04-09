@@ -12,7 +12,6 @@ DATA_FILE = "Mock_Student_Subscription_Data Econometrics.xlsx"
 try:
     df = pd.read_excel(DATA_FILE)
 
-    st.success("Data loaded successfully!")
 
     # Average monthly subscription cost
     if 'total_monthly_subscription_cost' in df.columns:
