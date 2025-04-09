@@ -279,7 +279,7 @@ if "subscription_data" not in st.session_state:
 if "show_add_form" not in st.session_state:
     st.session_state.show_add_form = False
 
-# --- Toggle to show form ---
+# --- Show subscription table ---
 if not st.session_state.show_add_form:
     st.markdown("### 📄 Your Subscriptions")
     st.dataframe(st.session_state.subscription_data, use_container_width=True)
@@ -287,6 +287,7 @@ if not st.session_state.show_add_form:
     if st.button("➕ Add New Subscription"):
         st.session_state.show_add_form = True
 
+# --- Show form to add new subscription ---
 else:
     st.markdown("### ➕ Add New Subscription")
 
@@ -309,7 +310,10 @@ else:
                     "Status": status,
                     "Next Billing": next_billing
                 }
-                st.session_state.subscription_data.loc[len(st.session_state.subscription_data)] = new_row
+                st.session_state.subscription_data = pd.concat(
+                    [st.session_state.subscription_data, pd.DataFrame([new_row])],
+                    ignore_index=True
+                )
                 st.success(f"{service} added successfully!")
                 st.session_state.show_add_form = False
             else:
