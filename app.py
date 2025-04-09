@@ -87,17 +87,13 @@ st.sidebar.markdown("### 👤 John Smith")
 st.sidebar.markdown("---")
 st.sidebar.title("📅 SubTrack")
 page = st.sidebar.radio("Navigation", [
-    "Dashboard", 
-    "My Subscriptions", 
-    "Analytics", 
-    "Settings"
-])
-page = st.sidebar.radio("Navigation", [
     "Dashboard",
     "My Subscriptions",
     "Analytics",
     "Settings"
-], key="navigation_radio")
+], key="main_sidebar_nav")
+
+
 
 
 
