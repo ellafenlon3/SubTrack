@@ -124,6 +124,56 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
+# In the Dashboard section (replace/add as needed)
+
+col1, col2 = st.columns([1, 3])
+
+with col1:
+    # 👤 Profile card
+    st.markdown("""
+        <div style='
+            background-color: #f3faf8;
+            padding: 15px 20px;
+            border-radius: 10px;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+            font-family: "Segoe UI", sans-serif;
+            margin-bottom: 20px;
+        '>
+            <h4 style='margin-top: 0;'>Your Profile</h4>
+            <p style='margin: 4px 0;'>Age: 21</p>
+            <p style='margin: 4px 0;'>Monthly Income: €1,200</p>
+            <p style='margin: 4px 0;'>Total Subscriptions: 6</p>
+        </div>
+    """, unsafe_allow_html=True)
+
+# In the Dashboard section (replace/add as needed)
+
+col1, col2 = st.columns([1, 3])
+
+with col1:
+    # 👤 Profile card
+    st.markdown("""
+        <div style='
+            background-color: #f3faf8;
+            padding: 15px 20px;
+            border-radius: 10px;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+            font-family: "Segoe UI", sans-serif;
+            margin-bottom: 20px;
+        '>
+            <h4 style='margin-top: 0;'>Your Profile</h4>
+            <p style='margin: 4px 0;'>Age: 21</p>
+            <p style='margin: 4px 0;'>Monthly Income: €1,200</p>
+            <p style='margin: 4px 0;'>Total Subscriptions: 6</p>
+        </div>
+    """, unsafe_allow_html=True)
+
+with col2:
+    # You can add cards, alerts, or metrics here
+    pass
+
 
 # Sample subscription data
 data = {
