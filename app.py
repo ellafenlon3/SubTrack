@@ -48,7 +48,7 @@ try:
 
 except Exception as e:
     st.error(f"⚠️ Error reading data: {e}")
-tab1, tab2, tab3, tab4 = st.tabs(["📊 Dashboard", "📋 My Subscriptions", "📈 Analytics", "⚙️ Settings"])
+tab1, tab2, tab3, tab4 = st.tabs(["📊 Dashboard"])
 import pandas as pd
 import streamlit as st
 
