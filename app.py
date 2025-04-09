@@ -201,6 +201,10 @@ st.markdown("<br><br>", unsafe_allow_html=True)
 # 📅 Upcoming Renewals (Styled like your screenshot)
 st.markdown("""
 <div style='
+    display: grid;
+    ...
+""", unsafe_allow_html=True)
+
     background-color: #ffffff;
     border-radius: 12px;
     padding: 25px 30px;
