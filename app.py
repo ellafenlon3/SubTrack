@@ -261,17 +261,64 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-
-
 # Sample subscription data
-data = {
-    "Service": ["Netflix", "Spotify Premium", "Disney+", "Adobe Creative Cloud", "Xbox Game Pass", "FitnessPal Pro"],
-    "Category": ["Entertainment", "Music", "Entertainment", "Education", "Gaming", "Fitness"],
-    "Monthly Cost (€)": [14.99, 9.99, 8.99, 19.99, 9.99, 4.99],
-    "Usage (hrs)": [12.5, 0.0, 4.2, 5.8, 0.0, 3.2],
-    "Status": ["Active", "Forgotten", "Active", "Active", "Forgotten", "Active"],
-    "Next Billing": ["Apr 15, 2025", "Apr 22, 2025", "Apr 18, 2025", "Apr 30, 2025", "Apr 27, 2025", "Apr 12, 2025"]
-}
+import streamlit as st
+import pandas as pd
+
+# --- Initialize session state ---
+if "subscription_data" not in st.session_state:
+    st.session_state.subscription_data = pd.DataFrame({
+        "Service": ["Netflix", "Spotify Premium", "Disney+", "Adobe Creative Cloud", "Xbox Game Pass", "FitnessPal Pro"],
+        "Category": ["Entertainment", "Music", "Entertainment", "Education", "Gaming", "Fitness"],
+        "Monthly Cost (€)": [14.99, 9.99, 8.99, 19.99, 9.99, 4.99],
+        "Usage (hrs)": [12.5, 0.0, 4.2, 5.8, 0.0, 3.2],
+        "Status": ["Active", "Forgotten", "Active", "Active", "Forgotten", "Active"],
+        "Next Billing": ["Apr 15, 2025", "Apr 22, 2025", "Apr 18, 2025", "Apr 30, 2025", "Apr 27, 2025", "Apr 12, 2025"]
+    })
+
+if "show_add_form" not in st.session_state:
+    st.session_state.show_add_form = False
+
+# --- Toggle to show form ---
+if not st.session_state.show_add_form:
+    st.markdown("### 📄 Your Subscriptions")
+    st.dataframe(st.session_state.subscription_data, use_container_width=True)
+
+    if st.button("➕ Add New Subscription"):
+        st.session_state.show_add_form = True
+
+else:
+    st.markdown("### ➕ Add New Subscription")
+
+    service = st.text_input("Service")
+    category = st.text_input("Category")
+    monthly_cost = st.number_input("Monthly Cost (€)", min_value=0.0, step=0.01)
+    usage = st.number_input("Usage (hrs)", min_value=0.0, step=0.1)
+    status = st.selectbox("Status", ["Active", "Forgotten"])
+    next_billing = st.text_input("Next Billing (e.g. Apr 30, 2025)")
+
+    col1, col2 = st.columns([1, 1])
+    with col1:
+        if st.button("✅ Add"):
+            if service and category and next_billing:
+                new_row = {
+                    "Service": service,
+                    "Category": category,
+                    "Monthly Cost (€)": monthly_cost,
+                    "Usage (hrs)": usage,
+                    "Status": status,
+                    "Next Billing": next_billing
+                }
+                st.session_state.subscription_data.loc[len(st.session_state.subscription_data)] = new_row
+                st.success(f"{service} added successfully!")
+                st.session_state.show_add_form = False
+            else:
+                st.warning("Please fill in all required fields.")
+
+    with col2:
+        if st.button("🔙 Go Back"):
+            st.session_state.show_add_form = False
+
 
 df = pd.DataFrame(data)
 
