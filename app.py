@@ -84,6 +84,24 @@ st.markdown("""
     }
     </style>
 """, unsafe_allow_html=True)
+# 1. Full-width banner (already in your file)
+
+# 2. Spacing CSS to push down content
+st.markdown("""
+    <style>
+    .main {
+        padding-top: 100px !important;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+# 3. 💬 Subtitle right under banner
+st.markdown("""
+<div style='text-align: center; font-size: 18px; color: #444; margin-top: 20px; margin-bottom: 10px; font-weight: 500;'>
+    Subscription Tracker & cancellation app
+</div>
+""", unsafe_allow_html=True)
+
 
 # Sample subscription data
 data = {
