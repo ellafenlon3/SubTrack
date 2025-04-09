@@ -90,7 +90,6 @@ st.markdown("""
         </div>
     </div>
 
-    <br><br><br><br>
 """, unsafe_allow_html=True)
 
 
