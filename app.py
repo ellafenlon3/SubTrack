@@ -177,7 +177,13 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 try:
-    df = pd.read_excel(DATA_FILE)
+    data = {
+        "name": "Gerard",
+        "age": 21
+    }
+except Exception as e:
+    st.error(f"Something went wrong: {e}")
+
 
 # Sample subscription data
 data = {
