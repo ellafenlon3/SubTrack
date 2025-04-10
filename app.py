@@ -94,10 +94,6 @@ if upgrade_clicked:
         </div>
     """, unsafe_allow_html=True)
 
-if st.button("💳 Pay Now"):
-    with st.spinner("Processing payment..."):
-        time.sleep(2)
-        st.success("You're now a Premium user!")
 
 # 1. Full-width banner (already in your file)
 
