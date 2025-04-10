@@ -265,7 +265,7 @@ import pandas as pd
 
 # --- Initialize session state ---
 if "subscription_data" not in st.session_state:
-    pd.DataFrame({
+    st.session_state.subscription_data = pd.DataFrame({
         "Service": ["Netflix", "Spotify Premium", "Disney+", "Adobe Creative Cloud", "Xbox Game Pass", "FitnessPal Pro"],
         "Category": ["Entertainment", "Music", "Entertainment", "Education", "Gaming", "Fitness"],
         "Monthly Cost (€)": [14.99, 9.99, 8.99, 19.99, 9.99, 4.99],
@@ -273,6 +273,7 @@ if "subscription_data" not in st.session_state:
         "Status": ["Active", "Forgotten", "Active", "Active", "Forgotten", "Active"],
         "Next Billing": ["Apr 15, 2025", "Apr 22, 2025", "Apr 18, 2025", "Apr 30, 2025", "Apr 27, 2025", "Apr 12, 2025"]
     })
+
 
 # 📊 Dashboard title with icon
 st.markdown("""
