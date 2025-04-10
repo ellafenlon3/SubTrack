@@ -184,10 +184,15 @@ if st.session_state.confirm_cancel:
         if st.button("🔙 Go Back"):
             st.session_state.confirm_cancel = False  # Return to main screen
 
-    with col2:
-        if st.button("✅ Yes, Cancel"):
-            st.success("Subscription has been cancelled.")  # You can add logic here
-            st.session_state.confirm_cancel = False  # Return to main screen after confirmation
+   import time  # add this at the top if not already
+
+with col2:
+    if st.button("✅ Yes, Cancel"):
+        with st.spinner("Cancelling your subscription..."):
+            time.sleep(1.5)
+        st.success("Subscription has been cancelled.")
+        st.session_state.confirm_cancel = False
+
 
 
 # --- 3. Normal page content (when not confirming) ---
