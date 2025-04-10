@@ -187,11 +187,10 @@ if st.session_state.confirm_cancel:
    import time  # add this at the top if not already
 
 with col2:
-    if st.button("✅ Yes, Cancel"):
-        with st.spinner("Cancelling your subscription..."):
-            time.sleep(1.5)
-        st.success("Subscription has been cancelled.")
-        st.session_state.confirm_cancel = False
+        if st.button("✅ Yes, Cancel"):
+            st.success("Subscription has been cancelled.")  # You can add logic here
+            st.session_state.confirm_cancel = False  # Return to main screen after confirmation
+
 
 
 
