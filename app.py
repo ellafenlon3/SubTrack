@@ -354,7 +354,16 @@ st.markdown("""
                         border-radius: 6px;
                         margin-right: 8px;
                         cursor: pointer;
-
+                    '>Set Reminder</button>
+                    <button style='
+                        background-color: #f76c6c;
+                        color: white;
+                        font-weight: bold;
+                        border: none;
+                        padding: 6px 12px;
+                        border-radius: 6px;
+                        cursor: pointer;
+                    '>Cancel Now</button>
                 </td>
             </tr>
         </tbody>
