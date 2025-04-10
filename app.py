@@ -274,7 +274,6 @@ if "subscription_data" not in st.session_state:
         "Next Billing": ["Apr 15, 2025", "Apr 22, 2025", "Apr 18, 2025", "Apr 30, 2025", "Apr 27, 2025", "Apr 12, 2025"]
     })
 
-
 # 📊 Dashboard title with icon
 st.markdown("""
 <div style='
