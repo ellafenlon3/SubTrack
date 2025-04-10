@@ -297,6 +297,7 @@ st.markdown("""
 # Show it on the dashboard
 st.subheader("📋 Your Subscriptions")
 st.dataframe(st.session_state.subscription_data, use_container_width=True)
+
 # Show logged-in user name at the bottom of the Dashboard tab
 st.markdown("""
     <hr style='margin-top: 40px; margin-bottom: 10px;'>
